@@ -29,7 +29,7 @@ Registrado como Cliente de Eureka
 Puerto 8001
 
 ## APIS DE DOMINIO
-- springboot-servicio-item
+### springboot-servicio-item
 Cliente Feign llamado por "servicio-producto"
 Control de balanceo de carga (Pasa control a Eureka)
 Control de tolerancia a fallos por circuit breaker con Hystrix
@@ -37,6 +37,6 @@ Registrado como Cliente de Eureka
 Puerto 8002
 
 
-- springboot-servicio-detalle
+### springboot-servicio-detalle
 Cliente feign llamado por "servicio-item"
 Puerto 8003
