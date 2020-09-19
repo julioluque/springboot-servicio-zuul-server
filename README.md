@@ -2,28 +2,28 @@
 Microservicio con Spring Boot, Spring Cloud, Netflix, Eureka Balanceo de carga con Ribbon Clientes Feign y Rest Template Base de datos H2
 https://github.com/julioluque
 
-# Lista de microservicios dentro de este ecosistema.
+## Lista de microservicios dentro de este ecosistema.
 Estos son los proyectos que se utilizaran para pruebas de integracion. 
 Levantamos en el orden que esta detallado a continuacion.
 
 ## SERVIDORES
-- springboot-servicio-config-server
+### springboot-servicio-config-server
 Servidor de condfiguracion transversal, Toma credenciales de git
 Puerto 8888
 
-- springboot-servicio-eureka-server
+### springboot-servicio-eureka-server
 Servidor de aplicaciones
 Control de balanceo de carga por Ribbon embebido.
 Puerto 8761
 
-- springboot-servicio-zuul-server
+### springboot-servicio-zuul-server
 Gateway o puerta de entrada.
 Registrado como cliente Eureka
 Puertto 8090
 
 
 ## API ORQUESTADORA
-- springboot-servicio-producto
+### springboot-servicio-producto
 Control de persistencia con H2 y JPA
 Registrado como Cliente de Eureka
 Puerto 8001
