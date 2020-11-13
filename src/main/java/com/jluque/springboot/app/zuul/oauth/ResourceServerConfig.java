@@ -21,19 +21,13 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		// usando paths completos
-		http.authorizeRequests().antMatchers("/api/security/oauth/token").permitAll()
+		// simplificando paths dando permiso completo a ADMIN sobre el CRUD
+		http.authorizeRequests().antMatchers("/api/security/oauth/**").permitAll()
 				.antMatchers(HttpMethod.GET, "/api/productos/listar", "/api/items/listar", "/api/usuarios/usuarios")
 				.permitAll()
 				.antMatchers(HttpMethod.GET, "/api/productos/ver/{id}", "/api/productos/ver/{id}/cantidad/{cantidad}",
 						"/api/usuarios/usuarios/{id}")
-				.hasAnyRole("ADMIN", "USER")
-				.antMatchers(HttpMethod.POST, "/api/productos/crear", "/api/items/crear", "/api/usuarios/usuarios")
-				.hasRole("ADMIN")
-				.antMatchers(HttpMethod.PUT, "/api/productos/editar/{id}", "/api/items/editar/{id}",
-						"/api/usuarios/usuarios/{id}")
-				.hasRole("ADMIN").antMatchers(HttpMethod.DELETE, "/api/productos/eliminar/{id}",
-						"/api/items/eliminar/{id}", "/api/usuarios/usuarios/{id}")
+				.hasAnyRole("ADMIN", "USER").antMatchers("/api/productos/**", "/api/items/**", "/api/usuarios/**")
 				.hasRole("ADMIN").anyRequest().authenticated();
 
 	}
